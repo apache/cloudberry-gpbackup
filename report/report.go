@@ -17,7 +17,6 @@ import (
 	"github.com/cloudberrydb/gp-common-go-libs/operating"
 	"github.com/cloudberrydb/gpbackup/history"
 	"github.com/cloudberrydb/gpbackup/utils"
-	"github.com/pkg/errors"
 	"gopkg.in/yaml.v2"
 )
 
