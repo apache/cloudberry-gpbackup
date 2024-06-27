@@ -298,8 +298,8 @@ func EnsureBackupVersionCompatibility(backupVersion string, restoreVersion strin
 	restoreSemVer, err := semver.Make(restoreVersion)
 	gplog.FatalOnError(err)
 	if backupSemVer.GT(restoreSemVer) {
-		gplog.Fatal(errors.Errorf("gprestore %s cannot restore a backup taken with gpbackup %s; please use gprestore %s or later.",
-			restoreVersion, backupVersion, backupVersion), "")
+		gplog.Warn("gprestore %s cannot restore a backup taken with gpbackup %s; please use gprestore %s or later.",
+			restoreVersion, backupVersion, backupVersion)
 	}
 }
 
@@ -309,7 +309,7 @@ func EnsureDatabaseVersionCompatibility(backupGPDBVersion string, restoreGPDBVer
 	backupGPDBSemVer, err := semver.Make(threeDigitVersion)
 	gplog.FatalOnError(err)
 	if backupGPDBSemVer.Major > restoreGPDBVersion.SemVer.Major {
-		gplog.Fatal(errors.Errorf("Cannot restore from GPDB version %s to %s due to catalog incompatibilities.", backupGPDBVersion, restoreGPDBVersion.VersionString), "")
+		gplog.Warn("Cannot restore from GPDB version %s to %s due to catalog incompatibilities.", backupGPDBVersion, restoreGPDBVersion.VersionString)
 	}
 }
 
