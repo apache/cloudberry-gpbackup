@@ -8,13 +8,13 @@ endif
 BACKUP=gpbackup
 RESTORE=gprestore
 HELPER=gpbackup_helper
-VERSION="1.2.7-beta1+dev.7"
+VERSION="1.6.0"
 BIN_DIR=$(shell echo $${GOPATH:-~/go} | awk -F':' '{ print $$1 "/bin"}')
 GINKGO_FLAGS := -r 
 GIT_VERSION := $(shell git describe --tags | perl -pe 's/(.*)-([0-9]*)-(g[0-9a-f]*)/\1+dev.\2.\3/')
-BACKUP_VERSION_STR=github.com/cloudberrydb/gpbackup/backup.version=$(VERSION)
-RESTORE_VERSION_STR=github.com/cloudberrydb/gpbackup/restore.version=$(VERSION)
-HELPER_VERSION_STR=github.com/cloudberrydb/gpbackup/helper.version=$(VERSION)
+BACKUP_VERSION_STR=github.com/cloudberrydb/gpbackup/backup.version=$(GIT_VERSION)
+RESTORE_VERSION_STR=github.com/cloudberrydb/gpbackup/restore.version=$(GIT_VERSION)
+HELPER_VERSION_STR=github.com/cloudberrydb/gpbackup/helper.version=$(GIT_VERSION)
 
 # note that /testutils is not a production directory, but has unit tests to validate testing tools
 SUBDIRS_HAS_UNIT=backup/ filepath/ history/ helper/ options/ report/ restore/ toc/ utils/ testutils/
