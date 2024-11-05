@@ -1,17 +1,15 @@
-# gpbackup for CloudberryDB
+# Backup Utility for Apache Cloudberry (Incubating)
 
 [![Slack](https://img.shields.io/badge/Join_Slack-6a32c9)](https://communityinviter.com/apps/cloudberrydb/welcome)
 [![Twitter Follow](https://img.shields.io/twitter/follow/cloudberrydb)](https://twitter.com/cloudberrydb)
-[![Website](https://img.shields.io/badge/Visit%20Website-eebc46)](https://cloudberrydb.org)
-[![GitHub Discussions](https://img.shields.io/github/discussions/cloudberrydb/cloudberrydb)](https://github.com/orgs/cloudberrydb/discussions)
-![GitHub License](https://img.shields.io/github/license/cloudberrydb/gpbackup)
+[![Website](https://img.shields.io/badge/Visit%20Website-eebc46)](https://cloudberry.apache.org)
 
 ---
 
 `gpbackup` and `gprestore` are Go utilities for performing Greenplum database
 backups, which are originally developed by the Greenplum Database team. This
-repo is a fork of gpbackup, dedicated to supporting CloduberryDB 1.0+. You
-will feel no change using gpbackup in CloudberryDB as well as in Greenplum.
+repo is a fork of gpbackup, dedicated to supporting Cloduberry 1.0+. You
+will feel no change using gpbackup in Cloudberry as well as in Greenplum.
 
 ## Pre-Requisites
 
@@ -25,10 +23,10 @@ variable](https://go.dev/doc/install) before starting the following steps.
 1. Downloading the latest version:
 
 ```bash
-go install github.com/cloudberrydb/gpbackup@latest
+go install github.com/apache/cloudberry-gpbackup@latest
 ```
 
-This will place the code in `$GOPATH/pkg/mod/github.com/cloudberrydb/gpbackup`.
+This will place the code in `$GOPATH/pkg/mod/github.com/apache/cloudberry-gpbackup`.
 
 2. Building and installing binaries
 
@@ -41,7 +39,7 @@ make build
 
 The `build` target will put the `gpbackup` and `gprestore` binaries in
 `$HOME/go/bin`. This will also attempt to copy `gpbackup_helper` to the
-CloudberryDB segments (retrieving hostnames from `gp_segment_configuration`).
+Cloudberry segments (retrieving hostnames from `gp_segment_configuration`).
 Pay attention to the output as it will indicate whether this operation was
 successful.
 
@@ -67,11 +65,11 @@ Run `--help` with either command for a complete list of options.
 
 ### Test setup
 
-Required for Cloudberry Database 1.0+, several tests require the
-`dummy_seclabel` Cloudberry Database contrib module. This module exists only
-to support regression testing of the SECURITY LABEL statement. It is not
-intended to be used in production. Use the following commands to install the
-module.
+Required for Cloudberry 1.0+, several tests require the
+`dummy_seclabel` Cloudberry contrib module. This module exists only to
+support regression testing of the SECURITY LABEL statement. It is not
+intended to be used in production. Use the following commands to
+install the module.
 
 ```bash
 pushd $(find ~/workspace/cbdb -name dummy_seclabel)
@@ -84,13 +82,12 @@ popd
 
 ### Test execution
 
-**NOTE**: The integration and end_to_end tests require a running Cloudberry
-Database instance.
+**NOTE**: The integration and end_to_end tests require a running Cloudberry instance.
 
 * To run all tests except end-to-end (linters, unit, and integration), use `make test`.
 * To run only unit tests, use `make unit`.
-* To run only integration tests (requires a running CloudberryDB instance), use `make integration`.
-* To run end to end tests (requires a running CloudberryDB instance), use `make end_to_end`.
+* To run only integration tests (requires a running Cloudberry instance), use `make integration`.
+* To run end to end tests (requires a running Cloudberry instance), use `make end_to_end`.
 
 We provide the following targets to help developers ensure their code fits
 Go standard formatting guidelines:
@@ -163,4 +160,4 @@ the [LICENSE](./LICENSE).
 ## Acknowledgment
 
 Thanks to all the Greenplum Backup contributors, more details in its [GitHub
-page](https://github.com/greenplum-db/gpbackup).
+page](https://github.com/greenplum-db/gpbackup-archive).
