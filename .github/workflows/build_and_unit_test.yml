@@ -26,9 +26,10 @@ jobs:
       run: |
         echo "GOPATH=/home/runner/work/gpbackup/gpbackup/go" >> $GITHUB_ENV
         echo "/home/runner/work/gpbackup/gpbackup/go/bin" >> $GITHUB_PATH
-
+        go env
     - name: Dependencies
       run: |
+        go env
         cd ${GOPATH}/pkg/mod/github.com/cloudberrydb/gpbackup
         make depend
 
