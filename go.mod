@@ -7,7 +7,6 @@ require (
 	github.com/blang/semver v3.5.1+incompatible
 	github.com/blang/vfs v1.0.0
 	github.com/cloudberrydb/gp-common-go-libs v1.0.11
-	github.com/cloudberrydb/gpbackup v1.0.2
 	github.com/jackc/pgconn v1.14.1
 	github.com/jmoiron/sqlx v1.3.5
 	github.com/klauspost/compress v1.17.4
